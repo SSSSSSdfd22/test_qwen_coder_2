@@ -3,1495 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAIROS | Professional Photography</title>
+    <title>Hikari Photography | Capturing Life's Serene Moments</title>
+    <meta name="description" content="Professional photography specializing in nature, wildlife, street, and lifestyle photography with Eastern aesthetic and serene atmosphere.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-deep: #1a1a2e;
-            --primary-rich: #2d2d44;
-            --accent-gold: #c9a962;
-            --accent-gold-light: #d4bc7a;
-            --accent-gold-dark: #b8954a;
-            --cream: #f5f3ef;
-            --warm-white: #faf9f6;
-            --text-dark: #2a2a2a;
-            --text-muted: #6b6b6b;
-            --serene-blue: #3d4c53;
-            --earth-brown: #8b7355;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--warm-white);
-            color: var(--text-dark);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-        }
-
-        .japanese-accent {
-            font-family: 'Noto Serif JP', serif;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.4s ease;
-            background: transparent;
-        }
-
-        nav.scrolled {
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--warm-white);
-            text-decoration: none;
-            letter-spacing: 0.15em;
-            position: relative;
-        }
-
-        .logo::after {
-            content: '時';
-            position: absolute;
-            top: -10px;
-            right: -25px;
-            font-size: 0.6em;
-            color: var(--accent-gold);
-            opacity: 0.8;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--warm-white);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 30px;
-            height: 2px;
-            background: var(--warm-white);
-            transition: all 0.3s ease;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--serene-blue) 100%);
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.3;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23c9a962" stroke-width="0.5" opacity="0.3"/></svg>');
-            background-size: 300px 300px;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 10;
-            padding: 0 2rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 7rem);
-            color: var(--warm-white);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-
-        .hero-title .highlight {
-            color: var(--accent-gold);
-            font-style: italic;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: rgba(250, 249, 246, 0.8);
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            line-height: 2;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.7s forwards;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            padding: 1rem 3rem;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            text-decoration: none;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            transition: all 0.4s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
-        }
-
-        .hero-cta:hover {
-            background: var(--accent-gold);
-            color: var(--primary-deep);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--warm-white);
-            opacity: 0;
-            animation: fadeInUp 1s ease 1.2s forwards;
-        }
-
-        .scroll-indicator span {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, var(--accent-gold), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 1; height: 60px; }
-            50% { opacity: 0.5; height: 40px; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* About Section */
-        .about {
-            padding: 10rem 5%;
-            background: var(--warm-white);
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
-
-        .section-label {
-            font-size: 0.85rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--primary-deep);
-            margin-bottom: 2rem;
-        }
-
-        .section-divider {
-            width: 60px;
-            height: 2px;
-            background: var(--accent-gold);
-            margin: 0 auto;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            filter: sepia(20%) contrast(95%);
-        }
-
-        .about-image-frame {
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid var(--accent-gold);
-            z-index: -1;
-        }
-
-        .about-content {
-            padding-left: 2rem;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 2.2;
-            margin-bottom: 2rem;
-        }
-
-        .about-signature {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--primary-deep);
-            font-style: italic;
-            margin-top: 3rem;
-        }
-
-        .about-stats {
-            display: flex;
-            gap: 4rem;
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            color: var(--accent-gold);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 10rem 5%;
-            background: var(--cream);
-        }
-
-        .portfolio-nav {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .portfolio-filter {
-            background: none;
-            border: none;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .portfolio-filter.active,
-        .portfolio-filter:hover {
-            color: var(--primary-deep);
-        }
-
-        .portfolio-filter.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 2px;
-            background: var(--accent-gold);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            aspect-ratio: 4/5;
-        }
-
-        .portfolio-item:nth-child(2) {
-            grid-column: span 2;
-            aspect-ratio: 2/1;
-        }
-
-        .portfolio-item:nth-child(5) {
-            grid-column: span 2;
-            aspect-ratio: 2/1;
-        }
-
-        .portfolio-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(26, 26, 46, 0.9), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .portfolio-item:hover .portfolio-img {
-            transform: scale(1.05);
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-category {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-title {
-            font-size: 1.5rem;
-            color: var(--warm-white);
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-location {
-            font-size: 0.9rem;
-            color: rgba(250, 249, 246, 0.7);
-            font-style: italic;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 10rem 5%;
-            background: var(--primary-deep);
-            color: var(--warm-white);
-        }
-
-        .services .section-title {
-            color: var(--warm-white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            padding: 3rem 2rem;
-            text-align: center;
-            border: 1px solid rgba(201, 169, 98, 0.3);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--accent-gold);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-gold);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--warm-white);
-        }
-
-        .service-description {
-            font-size: 1rem;
-            color: rgba(250, 249, 246, 0.7);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .service-price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-        }
-
-        /* Gallery Parallax */
-        .parallax-gallery {
-            padding: 8rem 0;
-            background: fixed url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect fill="%23f5f3ef" width="1000" height="1000"/><circle cx="500" cy="500" r="300" fill="none" stroke="%23c9a962" stroke-width="0.5" opacity="0.2"/></svg>');
-            overflow: hidden;
-        }
-
-        .gallery-row {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 5%;
-            margin-bottom: 1.5rem;
-        }
-
-        .gallery-row.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .gallery-item {
-            flex: 1;
-            height: 400px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 10rem 5%;
-            background: var(--warm-white);
-        }
-
-        .testimonial-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .testimonial-content {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-style: italic;
-            color: var(--primary-deep);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .testimonial-content::before {
-            content: '"';
-            font-size: 6rem;
-            color: var(--accent-gold);
-            position: absolute;
-            top: -3rem;
-            left: -2rem;
-            opacity: 0.3;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-gold);
-        }
-
-        .author-info {
-            text-align: left;
-        }
-
-        .author-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: var(--primary-deep);
-        }
-
-        .author-title {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 10rem 5%;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            color: var(--primary-deep);
-            margin-bottom: 2rem;
-        }
-
-        .contact-details {
-            margin-bottom: 3rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--accent-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-deep);
-            font-size: 1.2rem;
-        }
-
-        .contact-text {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            border: 1px solid var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-gold);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--accent-gold);
-            color: var(--primary-deep);
-        }
-
-        .contact-form {
-            background: var(--warm-white);
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-        }
-
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 1rem 0;
-            border: none;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            background: transparent;
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-            color: var(--text-dark);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: var(--accent-gold);
-            color: var(--primary-deep);
-            border: none;
-            padding: 1.2rem 3rem;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--accent-gold-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-deep);
-            color: var(--warm-white);
-            padding: 5rem 5% 3rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-bottom: 4rem;
-            border-bottom: 1px solid rgba(250, 249, 246, 0.1);
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .footer-brand p {
-            color: rgba(250, 249, 246, 0.6);
-            line-height: 2;
-            font-size: 0.95rem;
-        }
-
-        .footer-links h4 {
-            font-size: 1rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            color: var(--accent-gold);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(250, 249, 246, 0.6);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 3rem;
-        }
-
-        .copyright {
-            color: rgba(250, 249, 246, 0.5);
-            font-size: 0.85rem;
-        }
-
-        .footer-japanese {
-            font-family: 'Noto Serif JP', serif;
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-            opacity: 0.6;
-        }
-
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(26, 26, 46, 0.98);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .lightbox.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .lightbox-img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: none;
-            border: none;
-            color: var(--warm-white);
-            font-size: 2rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            color: var(--accent-gold);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .portfolio-item:nth-child(2),
-            .portfolio-item:nth-child(5) {
-                grid-column: span 1;
-                aspect-ratio: 4/5;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .about-content {
-                padding-left: 0;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: var(--primary-deep);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                transition: right 0.4s ease;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-                z-index: 1001;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-row {
-                flex-direction: column !important;
-            }
-
-            .gallery-item {
-                height: 300px;
-            }
-
-            .about-stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
-            }
-
-            .testimonial-content {
-                font-size: 1.4rem;
-            }
-        }
-
-        /* Animations on Scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#" class="logo">KAIROS</a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                <span>光</span>
+                <span class="logo-jp">Hikari</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
-            <p class="hero-subtitle">Professional Photography</p>
-            <h1 class="hero-title">Capturing <span class="highlight">Moments</span><br>of Serenity</h1>
-            <p class="hero-description">Blending Eastern aesthetics with modern vision to create timeless imagery that speaks to the soul</p>
-            <a href="#portfolio" class="hero-cta">View Portfolio</a>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+            <span class="hero-subtitle">Professional Photography</span>
+            <h1 class="hero-title">Capturing Life's <span class="gradient-text">Serene Moments</span></h1>
+            <p class="hero-description">Blending modern uniqueness with Eastern elegance, we create timeless photographs that tell your story through natural light and serene atmospheres.</p>
+            <div class="hero-buttons">
+                <a href="portfolio.html" class="btn btn-primary">View Portfolio</a>
+                <a href="contact.html" class="btn btn-secondary">Book Session</a>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-header fade-in">
-            <span class="section-label">The Artist</span>
-            <h2 class="section-title">Behind the Lens</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="about-grid">
-            <div class="about-image-wrapper fade-in">
-                <div class="about-image-frame"></div>
-                <img src="https://images.unsplash.com/photo-1554048612-387768052bf7?w=800&h=1000&fit=crop" alt="Photographer portrait" class="about-image">
-            </div>
-            <div class="about-content fade-in">
-                <p class="about-text">
-                    With over a decade of experience capturing life's most precious moments, I believe that photography is not just about recording images—it's about preserving emotions, stories, and the quiet beauty that exists in every frame.
-                </p>
-                <p class="about-text">
-                    My approach draws inspiration from Eastern philosophy and the concept of "ma"—the beauty found in negative space and stillness. Each photograph is crafted with intention, allowing natural light and authentic moments to guide the creative process.
-                </p>
-                <p class="about-text">
-                    From the serene landscapes of nature to the vibrant energy of street life, my work seeks to find harmony between the macro details and the grand narrative of human experience.
-                </p>
-                <div class="about-signature">Hiroshi Tanaka</div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">12+</span>
-                        <span class="stat-label">Years Experience</span>
+    <!-- About Preview -->
+    <section class="bg-cream">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper reveal-left">
+                    <img src="https://images.unsplash.com/photo-1554048612-387768052bf7?w=800" alt="Photographer" class="about-image hover-zoom">
+                    <div class="about-image-frame"></div>
+                </div>
+                <div class="about-content reveal-right">
+                    <span class="section-subtitle">About Hikari</span>
+                    <h2 class="section-title">The Art of Seeing <span class="jp-text">美</span></h2>
+                    <div class="section-divider" style="margin-left: 0;"></div>
+                    <p class="about-text">With over a decade of experience, Hikari Photography specializes in capturing the essence of natural beauty through an Eastern lens. Our approach combines technical excellence with artistic sensibility, creating images that resonate with serenity and depth.</p>
+                    <p class="about-text">Every photograph is a meditation on light, composition, and the fleeting moments that make life beautiful.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="15">0+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="500">0+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0+</span>
+                            <span class="stat-label">Awards Won</span>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Projects Completed</span>
+                    <a href="about.html" class="btn btn-outline mt-lg">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Our Work</span>
+                <h2 class="section-title">Featured Collections</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item reveal-scale stagger-1" data-category="nature">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600" alt="Nature Photography" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Nature</span>
+                        <h3 class="portfolio-title">Forest Serenity</h3>
+                        <a href="portfolio.html" class="btn btn-secondary">View Gallery</a>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Awards Won</span>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-2" data-category="wildlife">
+                    <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=600" alt="Wildlife Photography" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Wildlife</span>
+                        <h3 class="portfolio-title">Majestic Leopard</h3>
+                        <a href="portfolio.html" class="btn btn-secondary">View Gallery</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-3" data-category="street">
+                    <img src="https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=600" alt="Street Photography" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Street</span>
+                        <h3 class="portfolio-title">Urban Stories</h3>
+                        <a href="portfolio.html" class="btn btn-secondary">View Gallery</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-4" data-category="lifestyle">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600" alt="Lifestyle Photography" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Lifestyle</span>
+                        <h3 class="portfolio-title">Daily Moments</h3>
+                        <a href="portfolio.html" class="btn btn-secondary">View Gallery</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-5" data-category="nature">
+                    <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600" alt="Nature Photography" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Nature</span>
+                        <h3 class="portfolio-title">Mountain Dawn</h3>
+                        <a href="portfolio.html" class="btn btn-secondary">View Gallery</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-6" data-category="lifestyle">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Lifestyle Photography" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Lifestyle</span>
+                        <h3 class="portfolio-title">Friendship</h3>
+                        <a href="portfolio.html" class="btn btn-secondary">View Gallery</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-header fade-in">
-            <span class="section-label">Selected Works</span>
-            <h2 class="section-title">Portfolio</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="portfolio-nav fade-in">
-            <button class="portfolio-filter active" data-filter="all">All</button>
-            <button class="portfolio-filter" data-filter="nature">Nature</button>
-            <button class="portfolio-filter" data-filter="wildlife">Wildlife</button>
-            <button class="portfolio-filter" data-filter="street">Street</button>
-            <button class="portfolio-filter" data-filter="lifestyle">Lifestyle</button>
-        </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-item fade-in" data-category="nature">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=1000&fit=crop" alt="Misty forest landscape" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Nature</span>
-                    <h3 class="portfolio-title">Morning Mist</h3>
-                    <p class="portfolio-location">Kyoto, Japan</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in" data-category="wildlife">
-                <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=1200&h=600&fit=crop" alt="Leopard in natural habitat" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Wildlife</span>
-                    <h3 class="portfolio-title">Silent Predator</h3>
-                    <p class="portfolio-location">Serengeti, Tanzania</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in" data-category="street">
-                <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&h=1000&fit=crop" alt="Urban street scene" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Street</span>
-                    <h3 class="portfolio-title">City Rhythms</h3>
-                    <p class="portfolio-location">Tokyo, Japan</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in" data-category="lifestyle">
-                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=1000&fit=crop" alt="Peaceful lifestyle moment" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Lifestyle</span>
-                    <h3 class="portfolio-title">Quiet Moments</h3>
-                    <p class="portfolio-location">Bali, Indonesia</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in" data-category="nature">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=600&fit=crop" alt="Sunlight through forest" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Nature</span>
-                    <h3 class="portfolio-title">Golden Hour</h3>
-                    <p class="portfolio-location">Oregon, USA</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in" data-category="street">
-                <img src="https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=800&h=1000&fit=crop" alt="Street photography urban" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Street</span>
-                    <h3 class="portfolio-title">Urban Solitude</h3>
-                    <p class="portfolio-location">New York, USA</p>
-                </div>
+            
+            <div class="text-center mt-lg">
+                <a href="portfolio.html" class="btn btn-primary">View All Work</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-header fade-in">
-            <span class="section-label">What I Offer</span>
-            <h2 class="section-title">Services</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">🌿</div>
-                <h3 class="service-title">Nature & Landscape</h3>
-                <p class="service-description">Capture the serene beauty of natural environments with compositions that honor the harmony between earth and sky.</p>
-                <p class="service-price">From $2,500</p>
+    <!-- Services Preview -->
+    <section class="bg-warm">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">What We Offer</span>
+                <h2 class="section-title">Photography Services</h2>
+                <div class="section-divider"></div>
             </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">🦋</div>
-                <h3 class="service-title">Wildlife Photography</h3>
-                <p class="service-description">Document the raw elegance of wildlife in their natural habitats, preserving moments of instinct and grace.</p>
-                <p class="service-price">From $3,500</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">🏙️</div>
-                <h3 class="service-title">Street & Urban</h3>
-                <p class="service-description">Tell compelling stories through candid moments captured in the vibrant tapestry of city life.</p>
-                <p class="service-price">From $2,000</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">✨</div>
-                <h3 class="service-title">Lifestyle Sessions</h3>
-                <p class="service-description">Create authentic visual narratives that capture the essence of everyday moments with artistic elegance.</p>
-                <p class="service-price">From $1,800</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">👰</div>
-                <h3 class="service-title">Editorial & Fashion</h3>
-                <p class="service-description">Blend high-end fashion photography with natural aesthetics for editorial campaigns and brand storytelling.</p>
-                <p class="service-price">From $4,000</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">🎨</div>
-                <h3 class="service-title">Art Direction</h3>
-                <p class="service-description">Comprehensive creative direction for projects requiring a cohesive visual identity and aesthetic vision.</p>
-                <p class="service-price">Custom Pricing</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parallax Gallery -->
-    <section class="parallax-gallery" id="gallery">
-        <div class="gallery-row">
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop" alt="Dark forest path">
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=400&fit=crop" alt="Woman in nature">
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&h=400&fit=crop" alt="Autumn leaves">
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&h=400&fit=crop" alt="Mountain landscape">
-            </div>
-        </div>
-        <div class="gallery-row reverse">
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop" alt="Beach sunset">
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1501854140884-074cf2b2c3af?w=600&h=400&fit=crop" alt="Mountain lake">
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop" alt="Forest sunlight">
-            </div>
-            <div class="gallery-item fade-in">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=400&fit=crop" alt="Foggy forest">
+            
+            <div class="grid-3">
+                <div class="service-card reveal-scale stagger-1">
+                    <div class="service-icon">🌿</div>
+                    <h3 class="card-title">Nature & Wildlife</h3>
+                    <p class="card-text">Capture the raw beauty of the natural world with our specialized outdoor photography sessions.</p>
+                    <p class="service-price">$500 <span>/ session</span></p>
+                    <a href="services.html" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card reveal-scale stagger-2">
+                    <div class="service-icon">🏙️</div>
+                    <h3 class="card-title">Street Photography</h3>
+                    <p class="card-text">Document authentic urban moments and city life with our candid street photography approach.</p>
+                    <p class="service-price">$400 <span>/ session</span></p>
+                    <a href="services.html" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card reveal-scale stagger-3">
+                    <div class="service-icon">✨</div>
+                    <h3 class="card-title">Lifestyle Sessions</h3>
+                    <p class="card-text">Beautiful lifestyle photography for individuals, families, and brands seeking authentic imagery.</p>
+                    <p class="service-price">$600 <span>/ session</span></p>
+                    <a href="services.html" class="btn btn-outline">Learn More</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="section-header fade-in">
-            <span class="section-label">Kind Words</span>
-            <h2 class="section-title">Testimonials</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="testimonial-slider fade-in">
-            <div class="testimonial-content">
-                Hiroshi has an extraordinary gift for seeing what others miss. His ability to capture the essence of a moment while maintaining such artistic integrity is truly remarkable. The photographs he created for our campaign exceeded every expectation.
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Testimonials</span>
+                <h2 class="section-title">Client Stories</h2>
+                <div class="section-divider"></div>
             </div>
-            <div class="testimonial-author">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop" alt="Client portrait" class="author-avatar">
-                <div class="author-info">
-                    <div class="author-name">Yuki Nakamura</div>
-                    <div class="author-title">Creative Director, Zen Studios</div>
+            
+            <div class="testimonial-slider reveal">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Hikari Photography captured our wedding with such artistry and grace. Every photo feels like a piece of art that tells our story beautifully."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Client" class="author-image">
+                        <div class="author-info">
+                            <h4>Sarah & Michael Chen</h4>
+                            <p>Wedding Clients</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="section-header fade-in">
-            <span class="section-label">Get In Touch</span>
-            <h2 class="section-title">Let's Create Together</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info fade-in">
-                <h3>Start Your Journey</h3>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-text">Kyoto, Japan & Available Worldwide</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-text">hello@kairosphotography.com</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-text">+81 75-123-4567</div>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-link">IG</a>
-                    <a href="#" class="social-link">TW</a>
-                    <a href="#" class="social-link">LI</a>
-                    <a href="#" class="social-link">BE</a>
-                </div>
-            </div>
-            <form class="contact-form fade-in">
-                <div class="form-group">
-                    <label class="form-label">Your Name</label>
-                    <input type="text" class="form-input" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" placeholder="Enter your email">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Project Type</label>
-                    <input type="text" class="form-input" placeholder="Nature, Wildlife, Street, Lifestyle...">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Your Message</label>
-                    <textarea class="form-textarea" placeholder="Tell me about your vision..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+    <!-- Contact CTA -->
+    <section class="parallax-section">
+        <div class="parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600')"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content reveal-scale">
+            <span class="section-subtitle">Let's Create Together</span>
+            <h2 class="page-title">Ready to Capture Your Story?</h2>
+            <p class="hero-description" style="color: var(--text-cream);">Book a consultation and let's discuss how we can bring your vision to life.</p>
+            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo">KAIROS</a>
-                <p>Capturing moments of serenity and beauty through the lens of Eastern aesthetics and modern vision. Each photograph tells a story of harmony, stillness, and the profound beauty found in everyday moments.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">光 Hikari</a>
+                    <p class="footer-description">Professional photography studio specializing in nature, wildlife, street, and lifestyle photography with Eastern aesthetic and serene atmosphere.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📌</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Nature Photography</a></li>
+                        <li><a href="services.html">Wildlife Photography</a></li>
+                        <li><a href="services.html">Street Photography</a></li>
+                        <li><a href="services.html">Lifestyle Sessions</a></li>
+                        <li><a href="services.html">Commercial Work</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li>hello@hikariphotography.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>123 Serenity Lane</li>
+                        <li>Kyoto, Japan</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 Hikari Photography. All rights reserved.</p>
+                <p class="footer-jp">光写真館 - Capturing Life's Beauty</p>
             </div>
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Nature Photography</a></li>
-                    <li><a href="#">Wildlife Sessions</a></li>
-                    <li><a href="#">Street Photography</a></li>
-                    <li><a href="#">Lifestyle Projects</a></li>
-                    <li><a href="#">Art Direction</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Behance</a></li>
-                    <li><a href="#">500px</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p class="copyright">&copy; 2024 KAIROS Photography. All rights reserved.</p>
-            <span class="footer-japanese">静寂 — 美は静けさの中に</span>
         </div>
     </footer>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <img src="" alt="Full size image" class="lightbox-img" id="lightboxImg">
-    </div>
-
-    <script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Portfolio filtering
-        const filters = document.querySelectorAll('.portfolio-filter');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-        filters.forEach(filter => {
-            filter.addEventListener('click', () => {
-                filters.forEach(f => f.classList.remove('active'));
-                filter.classList.add('active');
-
-                const filterValue = filter.getAttribute('data-filter');
-
-                portfolioItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                        setTimeout(() => item.style.opacity = '1', 10);
-                    } else {
-                        item.style.opacity = '0';
-                        setTimeout(() => item.style.display = 'none', 300);
-                    }
-                });
-            });
-        });
-
-        // Lightbox functionality
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
-
-        portfolioItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('.portfolio-img');
-                lightboxImg.src = img.src;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        lightboxClose.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Scroll animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        });
-
-        // Parallax effect for gallery
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxSection = document.querySelector('.parallax-gallery');
-            if (parallaxSection) {
-                const speed = 0.3;
-                parallaxSection.style.backgroundPositionY = `${scrolled * speed}px`;
-            }
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>

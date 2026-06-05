@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Hikari Photography</title>
+    <meta name="description" content="Browse our portfolio of nature, wildlife, street, and lifestyle photography with Eastern aesthetic and serene atmosphere.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="portfolio-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                <span>光</span>
+                <span class="logo-jp">Hikari</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Portfolio</h1>
+            <p class="page-subtitle">Curated Collections <span class="jp-text">作品集</span></p>
+        </div>
+    </header>
+
+    <!-- Portfolio Filter & Gallery -->
+    <section class="bg-cream">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Our Work</span>
+                <h2 class="section-title">Featured Photography</h2>
+                <div class="section-divider"></div>
+                <p style="max-width: 600px; margin: 0 auto;">Explore our carefully curated collections spanning nature, wildlife, street, and lifestyle photography. Each image tells a story through light, composition, and moment.</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="portfolio-filter reveal">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+                <button class="filter-btn" data-filter="street">Street</button>
+                <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Nature Items -->
+                <div class="portfolio-item reveal-scale stagger-1" data-category="nature">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600" alt="Forest Serenity" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Nature</span>
+                        <h3 class="portfolio-title">Forest Serenity</h3>
+                        <p>Misty morning in ancient woodland</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-2" data-category="nature">
+                    <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600" alt="Mountain Dawn" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Nature</span>
+                        <h3 class="portfolio-title">Mountain Dawn</h3>
+                        <p>First light over alpine peaks</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-3" data-category="nature">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600" alt="Sunlight Through Trees" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Nature</span>
+                        <h3 class="portfolio-title">Golden Rays</h3>
+                        <p>Sunlight filtering through forest canopy</p>
+                    </div>
+                </div>
+                
+                <!-- Wildlife Items -->
+                <div class="portfolio-item reveal-scale stagger-4" data-category="wildlife">
+                    <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=600" alt="Majestic Leopard" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Wildlife</span>
+                        <h3 class="portfolio-title">Majestic Leopard</h3>
+                        <p>Wild cat in natural habitat</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-5" data-category="wildlife">
+                    <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=600" alt="Eagle in Flight" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Wildlife</span>
+                        <h3 class="portfolio-title">Soaring Eagle</h3>
+                        <p>Bird of prey in mountain air</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-6" data-category="wildlife">
+                    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=600" alt="Lion Portrait" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Wildlife</span>
+                        <h3 class="portfolio-title">King's Gaze</h3>
+                        <p>Lion portrait at golden hour</p>
+                    </div>
+                </div>
+                
+                <!-- Street Items -->
+                <div class="portfolio-item reveal-scale stagger-1" data-category="street">
+                    <img src="https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=600" alt="Urban Stories" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Street</span>
+                        <h3 class="portfolio-title">Urban Stories</h3>
+                        <p>City life captured in motion</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-2" data-category="street">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600" alt="City Skyline" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Street</span>
+                        <h3 class="portfolio-title">Concrete Dreams</h3>
+                        <p>Modern architecture and human scale</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-3" data-category="street">
+                    <img src="https://images.unsplash.com/photo-1444723121867-c61d6f8a798f?w=600" alt="Street Scene" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Street</span>
+                        <h3 class="portfolio-title">Crossroads</h3>
+                        <p>Intersection of lives and paths</p>
+                    </div>
+                </div>
+                
+                <!-- Lifestyle Items -->
+                <div class="portfolio-item reveal-scale stagger-4" data-category="lifestyle">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600" alt="Daily Moments" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Lifestyle</span>
+                        <h3 class="portfolio-title">Daily Moments</h3>
+                        <p>Authentic everyday beauty</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-5" data-category="lifestyle">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Friendship" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Lifestyle</span>
+                        <h3 class="portfolio-title">Friendship</h3>
+                        <p>Joy shared between kindred spirits</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item reveal-scale stagger-6" data-category="lifestyle">
+                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600" alt="Family Time" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Lifestyle</span>
+                        <h3 class="portfolio-title">Family Bonds</h3>
+                        <p>Generations connected by love</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Slider Section -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Gallery</span>
+                <h2 class="section-title">Featured Series</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="gallery-slider reveal">
+                <div class="gallery-track">
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200" alt="Gallery Image 1">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=1200" alt="Gallery Image 2">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=1200" alt="Gallery Image 3">
+                    </div>
+                </div>
+                <button class="gallery-nav gallery-prev">‹</button>
+                <button class="gallery-nav gallery-next">›</button>
+                <div class="gallery-dots">
+                    <button class="gallery-dot active"></button>
+                    <button class="gallery-dot"></button>
+                    <button class="gallery-dot"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="parallax-section">
+        <div class="parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600')"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content reveal-scale">
+            <span class="section-subtitle">Interested in Working Together?</span>
+            <h2 class="page-title">Let's Create Something Beautiful</h2>
+            <p class="hero-description" style="color: var(--text-cream);">Ready to bring your vision to life? Get in touch to discuss your project.</p>
+            <a href="contact.html" class="btn btn-primary">Start a Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">光 Hikari</a>
+                    <p class="footer-description">Professional photography studio specializing in nature, wildlife, street, and lifestyle photography with Eastern aesthetic and serene atmosphere.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📌</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Nature Photography</a></li>
+                        <li><a href="services.html">Wildlife Photography</a></li>
+                        <li><a href="services.html">Street Photography</a></li>
+                        <li><a href="services.html">Lifestyle Sessions</a></li>
+                        <li><a href="services.html">Commercial Work</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li>hello@hikariphotography.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>123 Serenity Lane</li>
+                        <li>Kyoto, Japan</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 Hikari Photography. All rights reserved.</p>
+                <p class="footer-jp">光写真館 - Capturing Life's Beauty</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+/* ========================================
+   PREMIUM PHOTOGRAPHY WEBSITE - PAGE SPECIFIC STYLES
+   ======================================== */
+
+/* About Page */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.about-image-wrapper {
+    position: relative;
+}
+
+.about-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.about-image-frame {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid var(--accent-gold);
+    z-index: -1;
+}
+
+.about-content h3 {
+    color: var(--primary-deep);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-text {
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--accent-gold);
+    display: block;
+}
+
+.stat-label {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Portfolio Page */
+.portfolio-page .portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.portfolio-page .section-header {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Services Page */
+.services-intro {
+    background: var(--bg-warm);
+}
+
+.pricing-section {
+    background: var(--bg-cream);
+}
+
+.service-comparison {
+    background: var(--bg-white);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-lg);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.comparison-table th {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--primary-deep);
+}
+
+.comparison-table td:first-child {
+    text-align: left;
+    color: var(--text-medium);
+}
+
+.check-icon {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+}
+
+/* Contact Page */
+.contact-page .contact-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.map-container {
+    height: 400px;
+    background: var(--bg-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+
+.business-hours {
+    background: var(--bg-warm);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.hour-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hour-day {
+    color: var(--primary-deep);
+    font-weight: 500;
+}
+
+.hour-time {
+    color: var(--text-medium);
+}
+
+/* FAQ Section */
+.faq-section {
+    background: var(--bg-warm);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-white);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid #e0e0e0;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--primary-deep);
+    transition: all var(--transition-fast);
+}
+
+.faq-question:hover {
+    color: var(--accent-gold);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all var(--transition-medium);
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    max-height: 500px;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+/* Thank You Page */
+.thank-you-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.thank-you-icon {
+    font-size: 5rem;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-lg);
+}
+
+.thank-you-title {
+    color: var(--primary-deep);
+    margin-bottom: var(--spacing-md);
+}
+
+.thank-you-message {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+/* 404 Page */
+.error-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-code {
+    font-family: var(--font-heading);
+    font-size: 10rem;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.error-title {
+    color: var(--primary-deep);
+    margin-bottom: var(--spacing-md);
+}
+
+.error-message {
+    max-width: 500px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        height: 400px;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .comparison-table {
+        font-size: 0.9rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 1rem 0.5rem;
+    }
+    
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .error-code {
+        font-size: 6rem;
+    }
+}
